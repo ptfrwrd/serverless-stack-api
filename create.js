@@ -18,8 +18,8 @@ export async function main(event, context) {
     try {
         await dynamoDbLib.call("put", params);
         return success(params.Item);
-    } catch (e) {
-
-        return failure({ status: false });
+    } catch(e) {
+        console.log(e);
+        callback(null, failure({status: false}));
     }
 }
